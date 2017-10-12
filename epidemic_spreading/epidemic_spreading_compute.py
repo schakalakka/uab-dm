@@ -87,22 +87,14 @@ def compute_noncircular(N, T):
     return fraction_of_sick_people
 
 
-def compute_whole_datasets():
+def compute_dataset(N, T, circular=True):
     """
-    Compute datasets in parallel because it takes a lot of time and dump it through pickle for easy reloading later
+    Compute dataset for specific number of people and time steps and dump/pickle it to a file
+    :param N: number of people
+    :param T: time steps
+    :param circular: boolean, if True the begin and end of the array are neighbours
     :return:
     """
-    circular_data_set = {}
-    non_circular_data_set = {}
-    with Pool(4) as pool:
-        circular_data_set = pool.starmap(compute, [(n, t) for n in N_list for t in T_list])
-        non_circular_data_set = pool.starmap(compute_noncircular, [(n, t) for n in N_list for t in T_list])
-    with open('datasets/dataset_circular.pickle', 'wb') as f, open('datasets/dataset_non_circular.pickle', 'wb') as g:
-        pickle._dump(circular_data_set, f)
-        pickle._dump(non_circular_data_set, g)
-
-
-def compute_dataset(N, T, circular=True):
     if circular:
         data_set = compute(N, T)
         with open(f'datasets/dataset_{N}_{T}_circular.pickle', 'wb') as f:
@@ -113,25 +105,26 @@ def compute_dataset(N, T, circular=True):
             pickle._dump(data_set, f)
 
 
-# compute_dataset(150, 250, circular=False)
-# compute_dataset(150, 300, circular=False)
-# compute_dataset(150, 350, circular=False)
-# compute_dataset(200, 250, circular=False)
-#
-# compute_dataset(200, 300)
-# compute_dataset(200, 350)
-# compute_dataset(250, 250)
-# compute_dataset(250, 300)
-# compute_dataset(250, 350)
-#
-# compute_dataset(200, 300, circular=False)
-# compute_dataset(200, 350, circular=False)
-# compute_dataset(250, 250, circular=False)
-# compute_dataset(250, 300, circular=False)
-# compute_dataset(250, 350, circular=False)
-# compute_dataset(150, 1000)
-# compute_dataset(150, 1000, circular=False)
-# compute_dataset(200, 1000)
-# compute_dataset(200, 1000, circular=False)
+compute_dataset(150, 250, circular=False)
+compute_dataset(150, 300, circular=False)
+compute_dataset(150, 350, circular=False)
+
+compute_dataset(200, 250, circular=False)
+compute_dataset(200, 300)
+compute_dataset(200, 350)
+
+compute_dataset(250, 250)
+compute_dataset(250, 300)
+compute_dataset(250, 350)
+
+compute_dataset(200, 300, circular=False)
+compute_dataset(200, 350, circular=False)
+compute_dataset(250, 250, circular=False)
+compute_dataset(250, 300, circular=False)
+compute_dataset(250, 350, circular=False)
+compute_dataset(150, 1000)
+compute_dataset(150, 1000, circular=False)
+compute_dataset(200, 1000)
+compute_dataset(200, 1000, circular=False)
 compute_dataset(250, 1000)
 compute_dataset(250, 1000, circular=False)

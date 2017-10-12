@@ -2,7 +2,6 @@ import random
 import numpy as np
 import pygal
 import pickle
-from multiprocessing import Pool
 
 N_list = [150, 200, 250]  # number of people
 gamma = 0.5  # healing chance
