@@ -1,0 +1,9 @@
+Author: Andreas Radke
+
+Requirements: 
+Python 3.6+
+Libraries: Pygal, Numpy
+
+'python epidemic_spreading_compute.py' computes all datasets and stores them in a datasets folder (takes a long time)
+'python epidemic_spreading_plot.py' outputs several plots given the above created datasets
+(config.py is for importing the libraries and setting the default variables)
