@@ -1,0 +1,13 @@
+Deterministic Modelling: Exercise 5
+Authors: Alba Gordó, Claudia Jiménez Martín, Stefano Pedarra and Andreas Radke
+
+Requirements: Python 3.6+
+Libraries: Pygal, Numpy
+
+'python3 5_general.py' plots the consiered function for different µ's together with the diagonal
+'python3 5_orbitdiagram.py' plots the orbit/bifurcation diagram of the considered function
+'python3 5_logisticsmap.py' plots the orbit diagram of the logistics map
+
+All the plots can be seen in the *.png/svg files.
+
+Our main work/solution can be found in Report_5.pdf
